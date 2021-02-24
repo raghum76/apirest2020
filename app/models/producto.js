@@ -1,4 +1,4 @@
-class produto{
+class producto{
     constructor(nombre, cantidad, costo){
         this.id=null;
         this.nombre=nombre;

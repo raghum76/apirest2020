@@ -1,6 +1,6 @@
 var productoController=require('../controllers/productoController');
 var router = require('express').Router()
-router.get('/search', function(req, res) {
+router.get('/search/:id', function(req, res) {
   //res.json({ message: 'Vas a buscar un producto'})
   productoController.search(req,res);
 })
