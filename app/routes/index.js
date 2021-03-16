@@ -1,9 +1,9 @@
 var router = require('express').Router()
  
-//var ventas = require('./ventas')
-//router.use('/ventas', ventas)
-var productos = require('./productos')
-router.use('/productos', productos)
+var invoice = require('./invoice')
+router.use('/invoice', invoice)
+var product = require('./product')
+router.use('/product', product)
  
 router.get('/', function (req, res) {
   res.status(200).json({ message: 'Estás conectado a nuestra API' })

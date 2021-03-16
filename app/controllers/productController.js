@@ -1,9 +1,9 @@
 let mysql=require('../../db/mysql');
-let producto=require('../models/producto');
+let product=require('../models/product');
 module.exports = {
    create:(req,res)=>{
       console.log(req.body);
-      mysql.query('insert into producto SET ?',req.body,(err,rows,fields)=>{
+      mysql.query('insert into product SET ?',req.body,(err,rows,fields)=>{
          if(!err)
             res.json(rows);
          else
@@ -11,7 +11,7 @@ module.exports = {
       })
    },
    list:(req,res)=>{
-      mysql.query('select * from producto',(err,rows,fields)=>{
+      mysql.query('select * from product',(err,rows,fields)=>{
          if (!err)
             res.json(rows);
          else
@@ -19,7 +19,7 @@ module.exports = {
       })
    },
    find:(req,res)=>{
-      mysql.query('select * from producto where id=?',req.params.id,(err,rows,fields)=>{
+      mysql.query('select * from product where id=?',req.params.id,(err,rows,fields)=>{
          if (!err)
             res.json(rows);
          else
@@ -27,7 +27,7 @@ module.exports = {
       })
    },
    edit:(req,res)=>{
-      mysql.query('update producto SET ? where id=?',[req.body, req.params.id],(err,rows,fields)=>{
+      mysql.query('update product SET ? where id=?',[req.body, req.params.id],(err,rows,fields)=>{
          if (!err)
             res.json(rows);
          else
@@ -35,7 +35,7 @@ module.exports = {
       })
    },
    search:(req,res)=>{ //para saber en que ventas se ha vendido el producto
-      mysql.query('Select * from venta v inner join detalle_venta d on v.id=d.id_venta inner join producto p on p.id=d.id_producto and d.id_producto=?',req.params.id,(err,rows,fields)=>{
+      mysql.query('Select * from order v inner join order_detail d on v.id=d.id_venta inner join product p on p.id=d.id_product and d.id_product=?',req.params.id,(err,rows,fields)=>{
          if (!err)
             res.json(rows);
          else

@@ -1,10 +1,10 @@
 const mysql= require('../node_modules/mysql');
 
 const mysqlConnection=mysql.createConnection({
-    host:'sql5.freemysqlhosting.net',
-    user:'sql5393435',
-    password:'Y8QSHB4l3x',
-    database: 'sql5393435'
+    host:'localhost',
+    user:'root',
+    password:'',
+    database: 'company'
 });
 mysqlConnection.connect(function (err){
     if(err){
